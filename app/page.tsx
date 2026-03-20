@@ -111,10 +111,25 @@ function Hero() {
         background: 'var(--charcoal)',
       }}
     >
+      {/* Hero background photo */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: 'url(https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1920&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
+        pointerEvents: 'none',
+      }} />
+      {/* Dark overlay */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(105deg, rgba(10,10,10,0.93) 0%, rgba(10,10,10,0.80) 50%, rgba(10,10,10,0.60) 100%)',
+        pointerEvents: 'none',
+      }} />
+
       {/* Background elements */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 65%)',
+        background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.05) 0%, transparent 65%)',
         pointerEvents: 'none',
       }} />
       <div style={{
