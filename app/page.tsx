@@ -610,6 +610,116 @@ function WhyUs() {
   )
 }
 
+
+// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
+function Testimonials() {
+  const reviews = [
+    { name: 'James R.', location: 'Hackney, London', rating: 5, text: 'Absolutely immaculate finish. My BMW looked better than when I bought it. Will definitely be booking again.' },
+    { name: 'Sarah M.', location: 'Islington, London', rating: 5, text: 'Booked the premium package and was blown away. The interior deep clean was incredible — even got the seats looking brand new.' },
+    { name: 'Daniel K.', location: 'Canary Wharf, London', rating: 5, text: 'They did my driveway and patio on the same day. Completely transformed — looked like a different house. Highly recommend.' },
+    { name: 'Priya S.', location: 'Stratford, London', rating: 5, text: 'Super professional, on time, and the results speak for themselves. My car looks showroom fresh every single time.' },
+    { name: 'Tom H.', location: 'Bethnal Green, London', rating: 5, text: 'Got the basic package as a trial and was so impressed I booked premium next week. Incredible value for the quality.' },
+    { name: 'Fatima A.', location: 'Walthamstow, London', rating: 5, text: 'They came to my office car park which was so convenient. Great communication and outstanding results.' },
+  ]
+
+  // Double for infinite loop
+  const doubled = [...reviews, ...reviews]
+
+  return (
+    <section style={{ padding: '100px 0', background: 'var(--charcoal)', overflow: 'hidden', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
+
+      {/* Fade edges */}
+      <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '120px', background: 'linear-gradient(to right, var(--charcoal), transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '120px', background: 'linear-gradient(to left, var(--charcoal), transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+      {/* Header */}
+      <div style={{ textAlign: 'center', marginBottom: '56px', padding: '0 1.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+          <div style={{ width: '40px', height: '1px', background: 'var(--gold)' }} />
+          <span style={{ fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', color: 'var(--gold)' }}>Happy Customers</span>
+          <div style={{ width: '40px', height: '1px', background: 'var(--gold)' }} />
+        </div>
+        <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(28px, 5vw, 50px)', fontWeight: 900, letterSpacing: '-1.5px', color: 'var(--text-primary)' }}>
+          What Our Clients Say
+        </h2>
+      </div>
+
+      {/* Marquee */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          display: flex;
+          gap: 20px;
+          width: max-content;
+          animation: marquee 32s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div style={{ overflow: 'hidden' }}>
+        <div className="marquee-track">
+          {doubled.map((review, i) => (
+            <div key={i}
+              style={{
+                flexShrink: 0,
+                width: '320px',
+                background: 'var(--charcoal-light)',
+                border: '1px solid rgba(201,168,76,0.12)',
+                padding: '28px 24px',
+                transition: 'border-color 0.3s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.4)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(201,168,76,0.12)')}
+            >
+              {/* Stars */}
+              <div style={{ display: 'flex', gap: '3px', marginBottom: '14px' }}>
+                {Array(review.rating).fill(0).map((_, s) => (
+                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#C9A84C">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+
+              {/* Quote */}
+              <div style={{ fontSize: '28px', color: 'rgba(201,168,76,0.25)', fontFamily: 'Georgia, serif', lineHeight: 1, marginBottom: '8px' }}>"</div>
+              <p style={{ fontSize: '14px', color: 'var(--text-primary)', lineHeight: 1.7, marginBottom: '20px', fontStyle: 'italic' }}>
+                {review.text}
+              </p>
+
+              {/* Author */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderTop: '1px solid rgba(201,168,76,0.08)', paddingTop: '16px' }}>
+                <div style={{
+                  width: '36px', height: '36px', borderRadius: '50%',
+                  background: 'linear-gradient(135deg, var(--gold-dark), var(--gold))',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '14px', fontWeight: 700, color: '#000', flexShrink: 0,
+                }}>
+                  {review.name[0]}
+                </div>
+                <div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>{review.name}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '1px' }}>{review.location}</div>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <div style={{ fontSize: '10px', color: 'var(--gold)', letterSpacing: '1px', background: 'rgba(201,168,76,0.08)', padding: '3px 8px' }}>
+                    VERIFIED
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── CONTACT ─────────────────────────────────────────────────────────────────
 function Contact() {
   return (
@@ -884,6 +994,7 @@ export default function Page() {
         <Services />
         <Outdoor />
         <WhyUs />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
