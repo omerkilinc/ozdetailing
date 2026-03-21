@@ -296,7 +296,7 @@ function Services() {
       name: 'Basic Package',
       emoji: '✦',
       tagline: 'The essentials, done right.',
-      price: 'From £40',
+      price: 'From £90',
       exterior: [
         'Pre-wash & snow foam',
         'Hand wash',
@@ -317,7 +317,7 @@ function Services() {
       name: 'Premium Package',
       emoji: '✦✦',
       tagline: 'The full treatment, every detail.',
-      price: 'From £80',
+      price: 'From £120',
       exterior: [
         'Pre-wash, snow foam & wax',
         'Detailed hand wash using premium products',
