@@ -296,7 +296,7 @@ function Services() {
       name: 'Basic Package',
       emoji: '✦',
       tagline: 'The essentials, done right.',
-      price: 'From £90',
+      price: 'From £40',
       exterior: [
         'Pre-wash & snow foam',
         'Hand wash',
@@ -317,7 +317,7 @@ function Services() {
       name: 'Premium Package',
       emoji: '✦✦',
       tagline: 'The full treatment, every detail.',
-      price: 'From £120',
+      price: 'From £80',
       exterior: [
         'Pre-wash, snow foam & wax',
         'Detailed hand wash using premium products',
@@ -743,7 +743,7 @@ function Contact() {
         </p>
 
         {/* Contact cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '60px' }}>
           {[
             {
               icon: (
@@ -774,6 +774,16 @@ function Contact() {
               label: 'Location',
               value: 'London, UK',
               href: '#',
+            },
+            {
+              icon: (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--gold)">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ),
+              label: 'Google Reviews',
+              value: '⭐ Leave us a review',
+              href: 'https://g.page/r/CYSL_ep-5M1pEBM/review',
             },
           ].map((item, i) => (
             <a key={i} href={item.href}
@@ -875,6 +885,8 @@ function Footer() {
           <a href="tel:+447856436967" style={{ color: 'var(--gold)', textDecoration: 'none' }}>+44 7856 436967</a>
           {' · '}
           <a href="https://ozdetailing.co.uk" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>ozdetailing.co.uk</a>
+          {' · '}
+          <a href="https://g.page/r/CYSL_ep-5M1pEBM/review" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)', textDecoration: 'none' }}>⭐ Review us</a>
         </div>
       </div>
     </footer>
